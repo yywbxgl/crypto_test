@@ -1,9 +1,9 @@
 # 常用加密算法使用，交叉编译RSICV平台进行测试
 
-![1234](./img/2.png)
+![1234](./img/1.png)
 
-## 源代码
-opensource https://github.com/weidai11/cryptopp  
+## opensource
+https://github.com/weidai11/cryptopp  
 website https://www.cryptopp.com/index.html  
 example https://www.cryptopp.com/wiki/Category:Sample
 
@@ -24,8 +24,16 @@ $ make -f GNUmakefile-cross
 g++ -g3 -ggdb -O0 -Wall -Wextra -Wno-unused -o test test.cpp /usr/local/lib/libcryptopp.a
 
 // 交叉编译
-riscv64-unknown-linux-gnu-g++  -g3 -ggdb -O0 -Wall -Wextra -Wno-unused -o test test.cpp -I/usr/local/include/ ./libcryptopp.a 
+riscv64-unknown-linux-gnu-g++  -g3 -ggdb -O0 -Wall -Wextra -Wno-unused -o test_cross test.cpp -I/usr/local/include/ ./libcryptopp.a 
 ```
 
 ## 运行结果
-![1234](./img/1.png)
+以下是在RISCV Vitrual PlatForm 的运行结果  
+每个算法测试次数 TEST_COUNT 为 100万次
+time_cost 为消耗的时间，单位为毫秒 
+
+![riscv_test](./img/riscv_test.png)
+
+运行时cpu占满
+
+![cpu](./img/cpu.png)
